@@ -1,0 +1,69 @@
+# =============================================================================
+# E-Storefront Docker Ignore
+# =============================================================================
+
+# Git
+.git
+.gitignore
+
+# Dependencies (will be installed in container)
+node_modules
+
+# Build outputs (will be built in container)
+.next
+out
+build
+dist
+
+# Test files
+tests/
+coverage/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+jest.config.js
+
+# Environment files (use build args instead)
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+docs/
+*.md
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel
+
+# Docker files (avoid recursive builds)
+Dockerfile
+Dockerfile.prod
+docker-compose*.yml
+
+# GitHub
+.github/
+
+# Misc
+*.pem
+.turbo/
