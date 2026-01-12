@@ -55,15 +55,83 @@ jobs:
           fi
 
   # ==========================================================================
-  # Deploy to Vercel Production
+  # Check Last Deployment Time
   # ==========================================================================
-  deploy-vercel:
-    name: Deploy to Vercel
+  check-deployment-cooldown:
+    name: Check Deployment Cooldown
     runs-on: ubuntu-latest
     needs: check-ci
     if: |
       (github.event_name == 'workflow_run' && needs.check-ci.outputs.should_deploy == 'true') ||
       (github.event_name == 'workflow_dispatch')
+    outputs:
+      can_deploy: ${{ steps.check-time.outputs.can_deploy }}
+      last_deployment: ${{ steps.check-time.outputs.last_deployment }}
+      hours_since: ${{ steps.check-time.outputs.hours_since }}
+    steps:
+      - name: Check last deployment time
+        id: check-time
+        run: |
+          # Get the last production deployment from Vercel API
+          RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}&target=production&limit=1&state=READY")
+          
+          # Extract the created timestamp of the last deployment
+          LAST_DEPLOYMENT=$(echo "$RESPONSE" | jq -r '.deployments[0].createdAt // empty')
+          
+          if [ -z "$LAST_DEPLOYMENT" ] || [ "$LAST_DEPLOYMENT" == "null" ]; then
+            echo "No previous deployment found, allowing deployment"
+            echo "can_deploy=true" >> $GITHUB_OUTPUT
+            echo "last_deployment=none" >> $GITHUB_OUTPUT
+            echo "hours_since=N/A" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Convert to Unix timestamp
+          LAST_DEPLOYMENT_TS=$(echo "$LAST_DEPLOYMENT" | xargs -I {} date -d {} +%s 2>/dev/null || echo "$((LAST_DEPLOYMENT / 1000))")
+          CURRENT_TS=$(date +%s)
+          
+          # Calculate hours since last deployment
+          DIFF_SECONDS=$((CURRENT_TS - LAST_DEPLOYMENT_TS))
+          DIFF_HOURS=$((DIFF_SECONDS / 3600))
+          
+          echo "Last deployment: $LAST_DEPLOYMENT"
+          echo "Hours since last deployment: $DIFF_HOURS"
+          
+          echo "last_deployment=$LAST_DEPLOYMENT" >> $GITHUB_OUTPUT
+          echo "hours_since=$DIFF_HOURS" >> $GITHUB_OUTPUT
+          
+          # Check if 6 hours have passed (21600 seconds)
+          if [ $DIFF_SECONDS -lt 21600 ]; then
+            echo "::warning::Last deployment was $DIFF_HOURS hours ago. Minimum cooldown is 6 hours."
+            echo "can_deploy=false" >> $GITHUB_OUTPUT
+          else
+            echo "Cooldown period passed. Deployment allowed."
+            echo "can_deploy=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deployment Cooldown Summary
+        if: steps.check-time.outputs.can_deploy == 'false'
+        run: |
+          echo "## ⏳ Deployment Blocked - Cooldown Period" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Last Deployment:** ${{ steps.check-time.outputs.last_deployment }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Hours Since:** ${{ steps.check-time.outputs.hours_since }} hours" >> $GITHUB_STEP_SUMMARY
+          echo "**Required Cooldown:** 6 hours" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Please wait until 6 hours have passed since the last production deployment." >> $GITHUB_STEP_SUMMARY
+
+  # ==========================================================================
+  # Deploy to Vercel Production
+  # ==========================================================================
+  deploy-vercel:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [check-ci, check-deployment-cooldown]
+    if: |
+      needs.check-deployment-cooldown.outputs.can_deploy == 'true' &&
+      ((github.event_name == 'workflow_run' && needs.check-ci.outputs.should_deploy == 'true') ||
+      (github.event_name == 'workflow_dispatch'))
     environment:
       name: production
       url: ${{ steps.deploy.outputs.url }}
