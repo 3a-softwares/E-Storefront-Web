@@ -4,7 +4,7 @@
 # Deployment only happens after CI success on main branch
 # =============================================================================
 
-name: CI
+name: CD
 
 on:
   # Only trigger on main branch after CI workflow completes successfully
