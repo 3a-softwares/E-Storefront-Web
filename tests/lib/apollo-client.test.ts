@@ -137,7 +137,8 @@ describe('Apollo Client Configuration', () => {
 
 describe('Environment Variable Edge Cases', () => {
   it('should handle empty string GRAPHQL_URL', () => {
-    const url = '' || 'http://localhost:4000/graphql';
+    const emptyUrl = '';
+    const url = emptyUrl || 'http://localhost:4000/graphql';
     expect(url).toBe('http://localhost:4000/graphql');
   });
 

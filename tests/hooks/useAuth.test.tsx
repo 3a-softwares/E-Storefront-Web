@@ -184,7 +184,7 @@ describe('useRegister', () => {
 
     await expect(
       act(async () => {
-        await result.current.register({ email: 'test@test.com', password: 'pass' });
+        await result.current.register({ name: 'Test User', email: 'test@test.com', password: 'pass' });
       })
     ).rejects.toThrow('Registration failed');
   });
