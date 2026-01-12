@@ -204,23 +204,120 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-indigo-50/30 to-purple-50/30">
-      <div className="sticky top-0 z-10 bg-white/95 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-5">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600">
+      {/* Header */}
+      <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b border-gray-200 safe:pt-safe-top">
+        <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-3 xs:py-4 sm:py-5">
+          <div className="flex items-center justify-between gap-2">
+            <h1 className="text-xl xs:text-2xl sm:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600">
               Discover Products
             </h1>
-            <div className="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full text-sm font-bold text-indigo-700">
+            <div className="px-2.5 xs:px-3 sm:px-4 py-1 xs:py-1.5 sm:py-2 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full text-xs xs:text-sm font-bold text-indigo-700 whitespace-nowrap">
               {data?.pagination.total || 0} Products
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-4 xs:py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 xs:gap-6 lg:gap-8">
+          {/* Filters - Collapsible on mobile */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-32 border border-gray-200">
+            <details className="lg:hidden group">
+              <summary className="flex items-center justify-between p-4 bg-white rounded-xl shadow-md cursor-pointer list-none border border-gray-200 min-h-[52px]">
+                <span className="flex items-center gap-2 font-bold text-gray-900">
+                  <FontAwesomeIcon icon={faFilter} className="text-gray-600" />
+                  Filters
+                </span>
+                <FontAwesomeIcon 
+                  icon={faChevronDown} 
+                  className="text-gray-500 transition-transform group-open:rotate-180" 
+                />
+              </summary>
+              <div className="mt-2 bg-white rounded-xl shadow-md p-4 xs:p-5 border border-gray-200">
+                {/* Mobile Filter Content */}
+                <Input
+                  type="text"
+                  value={tempSearch}
+                  onChange={(e: any) => setTempSearch(e.target.value)}
+                  placeholder="Search products..."
+                  className="w-full text-base"
+                />
+
+                <Select
+                  value={category}
+                  label={'Category'}
+                  onChange={(val: any) => {
+                    setCategory(val);
+                    setPage(1);
+                  }}
+                  className="w-full"
+                  options={CATEGORIES}
+                />
+
+                <div className="my-4">
+                  <label className="block text-sm font-bold text-gray-700 mb-3">Price Range</label>
+                  <div className="flex gap-2 -mb-4">
+                    <Input
+                      size="sm"
+                      type="number"
+                      min="0"
+                      value={tempPriceRange.min === 0 ? '' : tempPriceRange.min}
+                      onChange={(e: any) => {
+                        const value = e.target.value ? parseInt(e.target.value) : 0;
+                        setTempPriceRange({ ...tempPriceRange, min: value });
+                      }}
+                      placeholder="Min"
+                      className="text-base"
+                    />
+                    <Input
+                      size="sm"
+                      type="number"
+                      min={tempPriceRange.min}
+                      value={tempPriceRange.max === 0 ? '' : tempPriceRange.max}
+                      onChange={(e: any) => {
+                        const value = e.target.value ? parseInt(e.target.value) : 0;
+                        setTempPriceRange({ ...tempPriceRange, max: value });
+                      }}
+                      placeholder="Max"
+                      className="text-base"
+                    />
+                  </div>
+                </div>
+
+                <Select
+                  value={sortBy}
+                  label={'Sort By'}
+                  onChange={(val: any) => {
+                    setSortBy(val);
+                    setPage(1);
+                  }}
+                  className="w-full"
+                  options={SORT_OPTIONS}
+                />
+
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    setSearch('');
+                    setTempSearch('');
+                    setCategory('All');
+                    setPriceRange({ min: 0, max: 0 });
+                    setTempPriceRange({ min: 0, max: 0 });
+                    setSortBy('newest');
+                    setFeatured(false);
+                    setPage(1);
+                    router.push('/products');
+                  }}
+                  className="w-full mt-4 min-h-[44px]"
+                >
+                  <FontAwesomeIcon icon={faRedo} className="mr-2" />
+                  Reset Filters
+                </Button>
+              </div>
+            </details>
+
+            {/* Desktop Filters */}
+            <div className="hidden lg:block bg-white rounded-2xl shadow-xl p-6 sticky top-32 border border-gray-200">
               <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <FontAwesomeIcon icon={faFilter} className="text-gray-600" />
                 Filters
@@ -300,7 +397,6 @@ export default function ProductsPage() {
                 <Button
                   size="sm"
                   onClick={() => {
-                    // Reset all filter states
                     setSearch('');
                     setTempSearch('');
                     setCategory('All');
@@ -309,10 +405,9 @@ export default function ProductsPage() {
                     setSortBy('newest');
                     setFeatured(false);
                     setPage(1);
-                    // Clear URL parameters
                     router.push('/products');
                   }}
-                  className="w-full"
+                  className="w-full min-h-[44px]"
                 >
                   <FontAwesomeIcon icon={faRedo} className="mr-2" />
                   Reset Filters
@@ -321,20 +416,21 @@ export default function ProductsPage() {
             </div>
           </div>
 
+          {/* Product Grid */}
           <div className="lg:col-span-3">
             {error ? (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm xs:text-base">
                 Error loading products. Please try again.
               </div>
             ) : isLoading && page === 1 ? (
               <ProductCardSkeleton count={6} />
             ) : allProducts.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No products found.</p>
+              <div className="text-center py-8 xs:py-12">
+                <p className="text-gray-500 text-base xs:text-lg">No products found.</p>
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+                <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 mb-6 xs:mb-8">
                   {sortedProducts.map((product) => (
                     <ProductCard
                       key={product.id}
@@ -348,11 +444,11 @@ export default function ProductsPage() {
                 </div>
 
                 {hasMore && allProducts.length > 0 && (
-                  <div className="flex justify-center mb-12">
+                  <div className="flex justify-center mb-8 xs:mb-12">
                     <Button
                       disabled={isLoading}
                       onClick={handleLoadMore}
-                      className="px-8 py-3 bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-500 hover:to-gray-300 disabled:opacity-50 text-white font-semibold"
+                      className="px-6 xs:px-8 py-3 bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-500 hover:to-gray-300 disabled:opacity-50 text-white font-semibold min-h-[48px] text-sm xs:text-base"
                     >
                       {isLoading ? (
                         <>
@@ -370,8 +466,8 @@ export default function ProductsPage() {
                 )}
 
                 {!hasMore && allProducts.length > 0 && (
-                  <div className="text-center py-12">
-                    <p className="text-gray-500 font-medium">
+                  <div className="text-center py-8 xs:py-12">
+                    <p className="text-gray-500 font-medium text-sm xs:text-base">
                       You've reached the end! ({allProducts.length} products shown)
                     </p>
                   </div>

@@ -60,21 +60,21 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white backdrop-blur-lg border-b border-gray-200 shadow-lg">
-      <div className="max-w-7xl mx-auto py-2">
-        <div className="flex items-center justify-between h-14 sm:h-16">
-          <Link href="/" className="flex items-center gap-1 sm:gap-2 group flex-shrink-0">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm safe:pt-safe-top">
+      <div className="max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-2">
+        <div className="flex items-center justify-between h-12 xs:h-14 sm:h-16">
+          <Link href="/" className="flex items-center gap-1 xs:gap-2 group flex-shrink-0">
             <img
               src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}
-              className="object-contain w-16"
+              className="object-contain w-10 xs:w-12 sm:w-16"
             />
-            <span className="hidden xs:block text-lg sm:text-2xl font-extrabold text-black">
+            <span className="hidden xs:block text-base xs:text-lg sm:text-2xl font-extrabold text-black truncate max-w-[100px] xs:max-w-[120px] sm:max-w-none">
               3A Softwares
             </span>
           </Link>
 
-          <form className="hidden md:flex items-center flex-1 mx-8">
+          <form className="hidden md:flex items-center flex-1 mx-4 lg:mx-8 max-w-xl">
             <div className="w-full relative">
               <Input
                 type="text"
@@ -96,35 +96,35 @@ export default function Header() {
             </div>
           </form>
 
-          <div className="flex items-center gap-1 xs:gap-2.5 sm:gap-4">
+          <div className="flex items-center gap-1 xs:gap-2 sm:gap-3 md:gap-4">
             <Link
               href="/wishlist"
-              className="relative pt-2 p-1.5 xs:p-2 sm:pt-5 sm:p-2.5 text-gray-600 hover:text-pink-600 transition-all rounded-lg sm:rounded-xl hover:bg-pink-50 group"
+              className="relative p-2 xs:p-2.5 sm:p-3 text-gray-600 hover:text-pink-600 transition-all rounded-lg sm:rounded-xl hover:bg-pink-50 group min-h-[44px] min-w-[44px] flex items-center justify-center"
               title="Wishlist"
             >
               <FontAwesomeIcon
                 icon={faHeart}
-                className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform"
+                className="w-5 h-5 xs:w-5 xs:h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform"
               />
               {wishlist.length > 0 && (
-                <span className="absolute top-2 -right-1 w-4 h-4 xs:w-5 xs:h-5 bg-gradient-to-br from-pink-500 to-red-500 text-white text-[10px] xs:text-xs rounded-full flex items-center justify-center font-bold shadow-lg">
-                  {wishlist.length}
+                <span className="absolute -top-0.5 -right-0.5 xs:top-0 xs:-right-0.5 w-4 h-4 xs:w-5 xs:h-5 bg-gradient-to-br from-pink-500 to-red-500 text-white text-[10px] xs:text-xs rounded-full flex items-center justify-center font-bold shadow-lg">
+                  {wishlist.length > 9 ? '9+' : wishlist.length}
                 </span>
               )}
             </Link>
 
             <Link
               href="/cart"
-              className="relative pt-2 p-1.5 xs:p-2 sm:pt-5 sm:p-2.5 text-gray-600 hover:text-indigo-600 transition-all rounded-lg sm:rounded-xl hover:bg-indigo-50 group"
+              className="relative p-2 xs:p-2.5 sm:p-3 text-gray-600 hover:text-indigo-600 transition-all rounded-lg sm:rounded-xl hover:bg-indigo-50 group min-h-[44px] min-w-[44px] flex items-center justify-center"
               title="Shopping Cart"
             >
               <FontAwesomeIcon
                 icon={faShoppingCart}
-                className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform"
+                className="w-5 h-5 xs:w-5 xs:h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform"
               />
               {items.length > 0 && (
-                <span className="absolute top-2 -right-1 w-4 h-4 xs:w-5 xs:h-5 bg-gray-400 text-white text-[10px] xs:text-xs rounded-full flex items-center justify-center font-bold shadow-lg">
-                  {items.length}
+                <span className="absolute -top-0.5 -right-0.5 xs:top-0 xs:-right-0.5 w-4 h-4 xs:w-5 xs:h-5 bg-gray-700 text-white text-[10px] xs:text-xs rounded-full flex items-center justify-center font-bold shadow-lg">
+                  {items.length > 9 ? '9+' : items.length}
                 </span>
               )}
             </Link>
@@ -197,26 +197,27 @@ export default function Header() {
             >
               <FontAwesomeIcon
                 icon={isMobileMenuOpen ? faTimes : faBars}
-                className="w-5 h-5 sm:w-6 sm:h-6"
+                className="w-5 h-5 xs:w-5 xs:h-5 sm:w-6 sm:h-6"
               />
             </Button>
           </div>
         </div>
 
-        <div className="md:hidden pb-3 sm:pb-4">
+        {/* Mobile Search Bar */}
+        <div className="md:hidden pb-2 xs:pb-3 sm:pb-4">
           <div className="w-full relative">
             <Input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products..."
-              className="mb-0"
+              className="!mb-0 text-base"
               rightIcon={
                 <Button
                   size="sm"
                   variant="ghost"
                   onClick={handleSearch}
-                  className="text-gray-400 hover:text-indigo-600 transition-colors"
+                  className="text-gray-400 hover:text-indigo-600 transition-colors min-h-[44px] min-w-[44px]"
                 >
                   <FontAwesomeIcon icon={faSearch} className="w-5 h-5" />
                 </Button>
@@ -226,73 +227,84 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white shadow-lg">
-          <Link
-            href="/"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            Home
-          </Link>
-          <Link
-            href="/products"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            Products
-          </Link>
-          <Link
-            href="/orders"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            Orders
-          </Link>
-          <Link
-            href="/about"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/cart"
-            className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-          >
-            <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-            Cart ({items.length})
-          </Link>
-          {user ? (
-            <>
-              <Link
-                href="/profile"
-                className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 border-b border-gray-100 font-medium"
-              >
-                <FontAwesomeIcon icon={faUser} className="mr-2" />
-                Profile
-              </Link>
-              <Button
-                onClick={handleLogout}
-                variant="ghost"
-                size="md"
-                fullWidth={true}
-                className="!px-4 text-gray-600 hover:bg-gray-50 !justify-start block px-4 py-3 !text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors border-b border-gray-100"
-              >
-                <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
-                Sign Out
-              </Button>
-            </>
-          ) : (
+        <div className="md:hidden border-t border-gray-200 bg-white shadow-lg animate-slide-down max-h-[70vh] overflow-y-auto">
+          <nav className="divide-y divide-gray-100">
             <Link
-              href="/login"
-              className="block px-4 py-3 text-indigo-600 font-medium hover:bg-indigo-50"
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
             >
-              Sign In
+              Home
             </Link>
-          )}
+            <Link
+              href="/products"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+            >
+              Products
+            </Link>
+            <Link
+              href="/orders"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+            >
+              Orders
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/cart"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+            >
+              <FontAwesomeIcon icon={faShoppingCart} className="mr-3 w-5 h-5" />
+              Cart ({items.length})
+            </Link>
+            {user ? (
+              <>
+                <Link
+                  href="/profile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center px-4 xs:px-5 py-4 text-gray-700 hover:bg-indigo-50 active:bg-indigo-100 font-medium min-h-[52px]"
+                >
+                  <FontAwesomeIcon icon={faUser} className="mr-3 w-5 h-5" />
+                  Profile
+                </Link>
+                <Button
+                  onClick={handleLogout}
+                  variant="ghost"
+                  size="md"
+                  fullWidth={true}
+                  className="!px-4 xs:!px-5 !py-4 text-red-600 hover:bg-red-50 !justify-start !rounded-none !text-base font-medium min-h-[52px]"
+                >
+                  <FontAwesomeIcon icon={faSignOutAlt} className="mr-3 w-5 h-5" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center px-4 xs:px-5 py-4 text-indigo-600 font-semibold hover:bg-indigo-50 active:bg-indigo-100 min-h-[52px]"
+              >
+                Sign In
+              </Link>
+            )}
+          </nav>
         </div>
       )}
     </header>

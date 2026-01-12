@@ -59,38 +59,39 @@ export default function HomePage() {
   return (
     <>
       <main>
-        <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-28 overflow-hidden min-h-[calc(100vh_-_82px)]">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-12 xs:py-16 sm:py-20 md:py-28 overflow-hidden min-h-[60vh] xs:min-h-[70vh] sm:min-h-[calc(100vh_-_82px)] flex items-center">
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-48 xs:w-64 sm:w-96 h-48 xs:h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-48 xs:w-64 sm:w-96 h-48 xs:h-64 sm:h-96 bg-white/10 rounded-full blur-3xl"></div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold mb-6 border border-white/20">
-                  <FontAwesomeIcon icon={faStar} className="text-yellow-300 mr-2" />
+          <div className="relative max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 w-full">
+            <div className="grid md:grid-cols-2 gap-6 xs:gap-8 md:gap-12 items-center">
+              <div className="text-center md:text-left">
+                <div className="inline-block px-3 xs:px-4 py-1.5 xs:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs xs:text-sm font-semibold mb-4 xs:mb-6 border border-white/20">
+                  <FontAwesomeIcon icon={faStar} className="text-yellow-300 mr-1.5 xs:mr-2" />
                   New Year Sale - Up to 50% Off
                 </div>
-                <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 xs:mb-6 leading-tight">
                   Welcome to
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-white">
                     3A Softwares
                   </span>
                 </h1>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-xl">
+                <p className="text-base xs:text-lg sm:text-xl text-gray-300 mb-6 xs:mb-8 leading-relaxed max-w-xl mx-auto md:mx-0">
                   Discover amazing products at unbeatable prices. Fast shipping, secure checkout,
                   and 30-day hassle-free returns.
                 </p>
-                <div className="flex gap-4 flex-wrap">
+                <div className="flex gap-3 xs:gap-4 flex-col xs:flex-row justify-center md:justify-start">
                   <Link
                     href="/products"
-                    className="px-8 py-4 bg-white text-black font-bold rounded-xl hover:shadow-2xl hover:shadow-white/20 transition-all transform hover:scale-105 hover:-translate-y-1"
+                    className="px-6 xs:px-8 py-3 xs:py-4 bg-white text-black font-bold rounded-xl hover:shadow-2xl hover:shadow-white/20 transition-all transform active:scale-95 text-sm xs:text-base text-center min-h-[48px] flex items-center justify-center"
                   >
                     Shop Now →
                   </Link>
                   <Link
                     href="/products?featured=true"
-                    className="px-8 py-4 border-2 border-white/80 text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all"
+                    className="px-6 xs:px-8 py-3 xs:py-4 border-2 border-white/80 text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all text-sm xs:text-base text-center min-h-[48px] flex items-center justify-center"
                   >
                     View Featured
                   </Link>
@@ -100,7 +101,7 @@ export default function HomePage() {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-600 rounded-3xl blur-2xl opacity-30"></div>
                   <div className="relative text-white transform hover:scale-110 transition-transform">
-                    <FontAwesomeIcon icon={faShoppingBag} className="w-32 h-32" />
+                    <FontAwesomeIcon icon={faShoppingBag} className="w-24 h-24 lg:w-32 lg:h-32" />
                   </div>
                 </div>
               </div>
@@ -108,8 +109,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200/50 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Featured Products Section */}
+        <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200/50 py-12 xs:py-16 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8">
             <SectionHeader
               badge={{
                 icon: <FontAwesomeIcon icon={faFire} className="mr-2" />,
@@ -125,7 +127,7 @@ export default function HomePage() {
             {isLoading ? (
               <LoadingProductGrid count={8} />
             ) : featuredProducts.length === 0 ? (
-              <div className="text-center py-12 text-gray-500">
+              <div className="text-center py-8 xs:py-12 text-gray-500">
                 <p>No products available at the moment.</p>
               </div>
             ) : (
@@ -136,10 +138,10 @@ export default function HomePage() {
                   ))}
                 </ProductSlider>
 
-                <div className="text-center mt-12">
+                <div className="text-center mt-8 xs:mt-10 sm:mt-12">
                   <Link
                     href="/products"
-                    className="inline-block px-10 py-4 bg-gradient-to-r from-gray-900 to-black text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-gray-500/50 transition-all transform hover:scale-105 hover:-translate-y-1"
+                    className="inline-block px-6 xs:px-8 sm:px-10 py-3 xs:py-4 bg-gradient-to-r from-gray-900 to-black text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-gray-500/50 transition-all transform active:scale-95 text-sm xs:text-base min-h-[48px]"
                   >
                     Explore All Products →
                   </Link>
@@ -268,36 +270,37 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl mb-3 text-gray-700">
+        {/* Features Section */}
+        <section className="bg-gray-50 py-10 xs:py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 sm:gap-8">
+              <div className="text-center p-3 xs:p-4">
+                <div className="text-2xl xs:text-3xl sm:text-4xl mb-2 xs:mb-3 text-gray-700">
                   <FontAwesomeIcon icon={faShoppingBag} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Free Shipping</h3>
-                <p className="text-sm text-gray-600">On orders over ₹500</p>
+                <h3 className="font-semibold text-gray-900 mb-0.5 xs:mb-1 text-sm xs:text-base">Free Shipping</h3>
+                <p className="text-xs xs:text-sm text-gray-600">On orders over ₹500</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3 text-gray-700">
+              <div className="text-center p-3 xs:p-4">
+                <div className="text-2xl xs:text-3xl sm:text-4xl mb-2 xs:mb-3 text-gray-700">
                   <FontAwesomeIcon icon={faLock} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Secure Payment</h3>
-                <p className="text-sm text-gray-600">100% secure transactions</p>
+                <h3 className="font-semibold text-gray-900 mb-0.5 xs:mb-1 text-sm xs:text-base">Secure Payment</h3>
+                <p className="text-xs xs:text-sm text-gray-600">100% secure transactions</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3 text-gray-700">
+              <div className="text-center p-3 xs:p-4">
+                <div className="text-2xl xs:text-3xl sm:text-4xl mb-2 xs:mb-3 text-gray-700">
                   <FontAwesomeIcon icon={faUndoAlt} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Easy Returns</h3>
-                <p className="text-sm text-gray-600">30-day return policy</p>
+                <h3 className="font-semibold text-gray-900 mb-0.5 xs:mb-1 text-sm xs:text-base">Easy Returns</h3>
+                <p className="text-xs xs:text-sm text-gray-600">30-day return policy</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl mb-3 text-gray-700">
+              <div className="text-center p-3 xs:p-4">
+                <div className="text-2xl xs:text-3xl sm:text-4xl mb-2 xs:mb-3 text-gray-700">
                   <FontAwesomeIcon icon={faHeadset} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">24/7 Support</h3>
-                <p className="text-sm text-gray-600">Dedicated customer service</p>
+                <h3 className="font-semibold text-gray-900 mb-0.5 xs:mb-1 text-sm xs:text-base">24/7 Support</h3>
+                <p className="text-xs xs:text-sm text-gray-600">Dedicated customer service</p>
               </div>
             </div>
           </div>
