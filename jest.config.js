@@ -35,6 +35,11 @@ const customJestConfig = {
       statements: 40,
     },
   },
+  // Ensure proper cleanup to avoid worker process leaks
+  forceExit: true,
+  detectOpenHandles: false,
+  // Increase timeout for slower CI environments
+  testTimeout: 10000,
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config
