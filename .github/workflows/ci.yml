@@ -425,9 +425,12 @@ jobs:
         run: npm audit --audit-level=high
         continue-on-error: true
 
+      # Note: Dependency Review requires Dependency Graph to be enabled
+      # Enable at: Settings → Security → Code security and analysis → Dependency graph
       - name: Run Dependency Review
         uses: actions/dependency-review-action@v4
         if: github.event_name == 'pull_request'
+        continue-on-error: true  # Don't fail CI if Dependency Graph is not enabled
 
   # ==========================================================================
   # CI Success Gate
