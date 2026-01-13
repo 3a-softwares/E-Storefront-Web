@@ -1,0 +1,69 @@
+# =============================================================================
+# Labeler configuration - Maps file paths to labels
+# Used by .github/workflows/pr-labeler.yml
+# =============================================================================
+
+# Version bump labels based on conventional commit prefixes in file changes
+feature:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'app/**'
+      - 'components/**'
+
+documentation:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.md'
+      - 'docs/**'
+
+testing:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'tests/**'
+      - '**/*.test.*'
+      - '**/*.spec.*'
+      - 'jest.config.*'
+
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'package.json'
+      - 'package-lock.json'
+
+# Area labels
+frontend:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'app/**'
+      - 'components/**'
+      - 'public/**'
+
+core:
+  - changed-files:
+    - any-glob-to-any-file:
+      - 'lib/**'
+      - 'store/**'
+      - 'types/**'
+
+ci-cd:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '.github/**'
+      - 'Dockerfile*'
+      - 'docker-compose*.yml'
+      - 'vercel.json'
+
+config:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '*.config.*'
+      - 'tsconfig.json'
+      - '.eslintrc*'
+      - 'eslint.config.*'
+
+styles:
+  - changed-files:
+    - any-glob-to-any-file:
+      - '**/*.css'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'

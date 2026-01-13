@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 // Mock the Header wrapper
 jest.mock('../../components/HeaderWrapper', () => ({
   __esModule: true,
-  default: ({ children }: { children?: React.ReactNode }) => (
-    <div data-testid="header-wrapper">{children}</div>
+  default: () => (
+    <div data-testid="header-wrapper">Header Content</div>
   ),
 }));
 
@@ -18,13 +18,9 @@ describe('HeaderWrapper Component', () => {
       expect(screen.getByTestId('header-wrapper')).toBeInTheDocument();
     });
 
-    it('should render children', () => {
-      render(
-        <HeaderWrapper>
-          <div data-testid="child">Child Content</div>
-        </HeaderWrapper>
-      );
-      expect(screen.getByTestId('child')).toBeInTheDocument();
+    it('should render header content', () => {
+      render(<HeaderWrapper />);
+      expect(screen.getByTestId('header-wrapper')).toHaveTextContent('Header Content');
     });
   });
 });
