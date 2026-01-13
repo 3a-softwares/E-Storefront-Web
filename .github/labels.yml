@@ -1,0 +1,89 @@
+# Labels configuration for automatic version bumping
+# Use this file with GitHub CLI or as reference for manual label creation
+
+# Version bump labels
+- name: "major"
+  color: "B60205"
+  description: "Breaking changes - triggers major version bump (X.0.0)"
+
+- name: "breaking"
+  color: "B60205"
+  description: "Breaking changes - triggers major version bump (X.0.0)"
+
+- name: "minor"
+  color: "0E8A16"
+  description: "New features - triggers minor version bump (x.X.0)"
+
+- name: "feature"
+  color: "0E8A16"
+  description: "New features - triggers minor version bump (x.X.0)"
+
+- name: "patch"
+  color: "1D76DB"
+  description: "Bug fixes - triggers patch version bump (x.x.X)"
+
+- name: "fix"
+  color: "1D76DB"
+  description: "Bug fixes - triggers patch version bump (x.x.X)"
+
+- name: "bugfix"
+  color: "1D76DB"
+  description: "Bug fixes - triggers patch version bump (x.x.X)"
+
+# Type labels
+- name: "documentation"
+  color: "0075ca"
+  description: "Improvements or additions to documentation"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "refactor"
+  color: "FEF2C0"
+  description: "Code refactoring without feature changes"
+
+- name: "performance"
+  color: "5319e7"
+  description: "Performance improvements"
+
+- name: "security"
+  color: "ee0701"
+  description: "Security related changes"
+
+- name: "dependencies"
+  color: "0366d6"
+  description: "Dependency updates"
+
+- name: "testing"
+  color: "bfd4f2"
+  description: "Testing related changes"
+
+# Status labels
+- name: "needs-review"
+  color: "fbca04"
+  description: "Awaiting code review"
+
+- name: "approved"
+  color: "0e8a16"
+  description: "Approved and ready to merge"
+
+- name: "changes-requested"
+  color: "e99695"
+  description: "Changes have been requested"
+
+- name: "blocked"
+  color: "b60205"
+  description: "Blocked by another issue or PR"
+
+- name: "wip"
+  color: "7057ff"
+  description: "Work in progress - do not merge"
+
+- name: "do-not-merge"
+  color: "b60205"
+  description: "This PR should not be merged"

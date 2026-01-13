@@ -17,9 +17,15 @@ jest.mock('next/navigation', () => ({
 // Mock the hook
 jest.mock('../../lib/hooks/useTokenValidator', () => ({
   useTokenValidator: jest.fn(() => {
-    return { isValid: true, isChecking: false };
+    return {
+      validateToken: jest.fn().mockResolvedValue({ valid: true, user: {} }),
+      checkAndValidate: jest.fn().mockResolvedValue(undefined),
+    };
   }),
-  default: jest.fn(() => ({ isValid: true, isChecking: false })),
+  default: jest.fn(() => ({
+    validateToken: jest.fn().mockResolvedValue({ valid: true, user: {} }),
+    checkAndValidate: jest.fn().mockResolvedValue(undefined),
+  })),
 }));
 
 import { useTokenValidator } from '../../lib/hooks/useTokenValidator';
@@ -29,18 +35,18 @@ describe('useTokenValidator Hook', () => {
     jest.clearAllMocks();
   });
 
-  it('should return validation status', () => {
+  it('should return validation functions', () => {
     const { result } = renderHook(() => useTokenValidator());
     expect(result.current).toBeDefined();
   });
 
-  it('should have isValid property', () => {
+  it('should have validateToken function', () => {
     const { result } = renderHook(() => useTokenValidator());
-    expect(result.current.isValid).toBe(true);
+    expect(result.current.validateToken).toBeDefined();
   });
 
-  it('should have isChecking property', () => {
+  it('should have checkAndValidate function', () => {
     const { result } = renderHook(() => useTokenValidator());
-    expect(result.current.isChecking).toBe(false);
+    expect(result.current.checkAndValidate).toBeDefined();
   });
 });

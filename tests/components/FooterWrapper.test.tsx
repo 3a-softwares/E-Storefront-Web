@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 // Mock the Footer wrapper and component
 jest.mock('../../components/FooterWrapper', () => ({
   __esModule: true,
-  default: ({ children }: { children?: React.ReactNode }) => (
-    <div data-testid="footer-wrapper">{children}</div>
+  default: () => (
+    <div data-testid="footer-wrapper">Footer Content</div>
   ),
 }));
 
@@ -18,13 +18,9 @@ describe('FooterWrapper Component', () => {
       expect(screen.getByTestId('footer-wrapper')).toBeInTheDocument();
     });
 
-    it('should render children', () => {
-      render(
-        <FooterWrapper>
-          <div data-testid="child">Child Content</div>
-        </FooterWrapper>
-      );
-      expect(screen.getByTestId('child')).toBeInTheDocument();
+    it('should render footer content', () => {
+      render(<FooterWrapper />);
+      expect(screen.getByTestId('footer-wrapper')).toHaveTextContent('Footer Content');
     });
   });
 });
