@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -139,7 +139,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">220x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,11 +158,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,7 +173,7 @@ interface ProductCardSkeletonProps {
   count?: number;
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >SingleSkeleton() {</span>
+function SingleSkeleton() {
   return (
     &lt;div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-pulse"&gt;
       {/* Image skeleton */}
@@ -190,8 +190,8 @@ function <span class="fstat-no" title="function not covered" >SingleSkeleton() {
         {/* Rating */}
         &lt;div className="flex items-center gap-2 mb-3"&gt;
           &lt;div className="flex gap-1"&gt;
-            {[...Array(5)].map(<span class="fstat-no" title="function not covered" >(_</span>, i) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;div key={i} c</span>lassName="h-4 w-4 bg-gray-200 rounded" /&gt;
+            {[...Array(5)].map((_, i) =&gt; (
+              &lt;div key={i} className="h-4 w-4 bg-gray-200 rounded" /&gt;
             ))}
           &lt;/div&gt;
           &lt;div className="h-4 w-16 bg-gray-200 rounded" /&gt;
@@ -210,11 +210,11 @@ function <span class="fstat-no" title="function not covered" >SingleSkeleton() {
   );
 }
 &nbsp;
-export default function <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ProductCardSkeleton({</span></span> count = <span class="branch-0 cbranch-no" title="branch not covered" >6 </span>}: ProductCardSkeletonProps) {
+export default function ProductCardSkeleton({ count = 6 }: ProductCardSkeletonProps) {
   return (
     &lt;div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mb-8"&gt;
-      {[...Array(count)].map(<span class="fstat-no" title="function not covered" >(_</span>, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >        &lt;SingleSkeleton key={index} /&gt;</span>
+      {[...Array(count)].map((_, index) =&gt; (
+        &lt;SingleSkeleton key={index} /&gt;
       ))}
     &lt;/div&gt;
   );
@@ -226,7 +226,7 @@ export default function <span class="cstat-no" title="statement not covered" ><s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-12T06:42:21.723Z
+                at 2026-01-13T05:07:08.076Z
             </div>
         <script src="../prettify.js"></script>
         <script>

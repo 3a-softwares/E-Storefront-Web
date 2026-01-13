@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,24 +115,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,7 +148,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 &nbsp;
 interface ProductSkeletonGridProps {
@@ -160,20 +160,20 @@ interface ProductSkeletonGridProps {
   variant?: 'default' | 'compact';
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >ProductSkeletonGrid: React.FC&lt;ProductSkeletonGridProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>{</span></span>
-  count = <span class="branch-0 cbranch-no" title="branch not covered" >8,</span>
-  variant = <span class="branch-0 cbranch-no" title="branch not covered" >'default',</span>
+export const ProductSkeletonGrid: React.FC&lt;ProductSkeletonGridProps&gt; = ({
+  count = 8,
+  variant = 'default',
 }) =&gt; {
-  const gridClasses = <span class="cstat-no" title="statement not covered" >variant === 'compact' </span>
+  const gridClasses = variant === 'compact' 
     ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4'
     : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6';
 &nbsp;
-  const heightClasses = <span class="cstat-no" title="statement not covered" >variant === 'compact' ? 'h-32' : 'h-48';</span>
+  const heightClasses = variant === 'compact' ? 'h-32' : 'h-48';
 &nbsp;
   return (
     &lt;div className={`grid ${gridClasses}`}&gt;
-      {[...Array(count)].map(<span class="fstat-no" title="function not covered" >(_</span>, i) =&gt; (
-<span class="cstat-no" title="statement not covered" >        &lt;div key={i} c</span>lassName="rounded-lg overflow-hidden bg-white shadow-md"&gt;
+      {[...Array(count)].map((_, i) =&gt; (
+        &lt;div key={i} className="rounded-lg overflow-hidden bg-white shadow-md"&gt;
           &lt;div
             className={`${heightClasses} bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-pulse`}
           &gt;&lt;/div&gt;
@@ -183,7 +183,7 @@ export const <span class="cstat-no" title="statement not covered" >ProductSkelet
 &nbsp;
             &lt;div className="h-3 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded w-20 animate-pulse"&gt;&lt;/div&gt;
 &nbsp;
-            {<span class="branch-0 cbranch-no" title="branch not covered" >variant === 'default' &amp;&amp; (</span>
+            {variant === 'default' &amp;&amp; (
               &lt;&gt;
                 &lt;div className="h-5 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 rounded w-24 animate-pulse mt-2"&gt;&lt;/div&gt;
 &nbsp;
@@ -197,7 +197,7 @@ export const <span class="cstat-no" title="statement not covered" >ProductSkelet
   );
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >LoadingProductGrid = <span class="cstat-no" title="statement not covered" >P</span>roductSkeletonGrid;</span>
+export const LoadingProductGrid = ProductSkeletonGrid;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -205,7 +205,7 @@ export const <span class="cstat-no" title="statement not covered" >LoadingProduc
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-12T06:42:21.723Z
+                at 2026-01-13T05:07:08.076Z
             </div>
         <script src="../prettify.js"></script>
         <script>
