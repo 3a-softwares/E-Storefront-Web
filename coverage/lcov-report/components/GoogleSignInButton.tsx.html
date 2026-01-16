@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.05% </span>
+                <span class="strong">62.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/38</span>
+                <span class='fraction'>28/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.57% </span>
+                <span class="strong">65.21% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/14</span>
+                <span class='fraction'>15/23</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">71.05% </span>
+                <span class="strong">62.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/38</span>
+                <span class='fraction'>28/45</span>
             </div>
         
             
@@ -196,7 +196,20 @@
 <a name='L131'></a><a href='#L131'>131</a>
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -238,14 +251,25 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -311,6 +335,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -371,15 +397,26 @@ export default function GoogleSignInButton({
   const router = useRouter();
   const { googleAuth, isLoading, error } = useGoogleAuth();
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+  const [authError, setAuthError] = useState&lt;string | null&gt;(null);
 &nbsp;
   const handleCredentialResponse = useCallback(
 <span class="fstat-no" title="function not covered" >    async (r</span>esponse: any) =&gt; {
 <span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        await googleAuth({ idToken: response.credential });</span>
+<span class="cstat-no" title="statement not covered" >        setAuthError(null);</span>
+        const result = <span class="cstat-no" title="statement not covered" >await googleAuth({ idToken: response.credential });</span>
+&nbsp;
+        // Check if user has customer role - only customers can use the storefront
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (result?.user?.role &amp;&amp; result.user.role !== 'customer') {</span>
+<span class="cstat-no" title="statement not covered" >          setAuthError('Access denied. Only customer accounts can access the storefront.');</span>
+<span class="cstat-no" title="statement not covered" >          onError?.(new Error('Access denied. Only customer accounts can access the storefront.'));</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        onSuccess?.();</span>
 <span class="cstat-no" title="statement not covered" >        router.push(redirectTo);</span>
       } catch (err: any) {
 <span class="cstat-no" title="statement not covered" >        console.error('Google auth error:', err);</span>
+<span class="cstat-no" title="statement not covered" >        setAuthError(err.message || 'Google authentication failed');</span>
 <span class="cstat-no" title="statement not covered" >        onError?.(err);</span>
       }
     },
@@ -443,9 +480,11 @@ export default function GoogleSignInButton({
     }
   }, [isScriptLoaded, handleCredentialResponse, text, theme, size, width]);
 &nbsp;
-  if (error) {
+  if (error || authError) {
     return (
-      &lt;div className="text-error text-sm text-center"&gt;Google sign-in failed. Please try again.&lt;/div&gt;
+      &lt;div className="text-red-600 text-sm text-center p-3 bg-red-50 rounded-lg border border-red-200"&gt;
+        {authError || 'Google sign-in failed. Please try again.'}
+      &lt;/div&gt;
     );
   }
 &nbsp;
@@ -469,7 +508,7 @@ export default function GoogleSignInButton({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-13T05:07:08.076Z
+                at 2026-01-15T07:44:12.804Z
             </div>
         <script src="../prettify.js"></script>
         <script>
