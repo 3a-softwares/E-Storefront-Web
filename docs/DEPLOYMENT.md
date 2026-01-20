@@ -59,9 +59,9 @@ This document provides comprehensive instructions for deploying the E-Storefront
 
    ```
    Framework Preset: Next.js
-   Build Command: npm run build
+   Build Command: yarn build
    Output Directory: .next
-   Install Command: npm ci
+   Install Command: yarn install --frozen-lockfile
    ```
 
 3. **Set Environment Variables**
@@ -83,10 +83,10 @@ This document provides comprehensive instructions for deploying the E-Storefront
 ```json
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build",
+  "buildCommand": "yarn build",
   "outputDirectory": ".next",
   "framework": "nextjs",
-  "devCommand": "npm run dev",
+  "devCommand": "yarn dev",
   "regions": ["iad1"],
   "git": {
     "deploymentEnabled": true
@@ -223,8 +223,8 @@ The production Dockerfile uses multi-stage builds for optimization:
 # Stage 1: Dependencies
 FROM node:20-alpine AS deps
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile --production
 
 # Stage 2: Builder
 FROM node:20-alpine AS builder
@@ -235,7 +235,7 @@ ARG NEXT_PUBLIC_ENV
 ARG NEXT_PUBLIC_GRAPHQL_URL
 ENV NEXT_PUBLIC_ENV=${NEXT_PUBLIC_ENV}
 ENV NEXT_PUBLIC_GRAPHQL_URL=${NEXT_PUBLIC_GRAPHQL_URL}
-RUN npm run build
+RUN yarn build
 
 # Stage 3: Runner
 FROM node:20-alpine AS runner
@@ -295,19 +295,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Run linting
-        run: npm run lint:ci
+        run: yarn lint:ci
 
       - name: Run type check
-        run: npm run type-check
+        run: yarn type-check
 
       - name: Run tests
-        run: npm run test:coverage
+        run: yarn test:coverage
 
       - name: Upload coverage to SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
@@ -326,13 +326,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build application
-        run: npm run build
+        run: yarn build
         env:
           NEXT_PUBLIC_ENV: production
           NEXT_PUBLIC_GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}

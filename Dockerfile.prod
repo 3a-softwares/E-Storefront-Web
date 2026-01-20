@@ -57,7 +57,7 @@ ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build Next.js app
-RUN npm run build
+RUN yarn build
 
 # ===== Stage 3: Runner =====
 FROM node:20-alpine AS runner

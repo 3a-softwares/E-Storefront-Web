@@ -4,59 +4,59 @@ Quick reference guide for commonly used commands in the E-Storefront-Web applica
 
 ## 📦 Development
 
-| Command         | Description                           |
-| --------------- | ------------------------------------- |
-| `npm run dev`   | Start development server on port 3004 |
-| `npm run build` | Build the application for production  |
-| `npm run start` | Start production server on port 3004  |
+| Command      | Description                           |
+| ------------ | ------------------------------------- |
+| `yarn dev`   | Start development server on port 3004 |
+| `yarn build` | Build the application for production  |
+| `yarn start` | Start production server on port 3004  |
 
 ## 🧹 Code Quality
 
-| Command                | Description                                   |
-| ---------------------- | --------------------------------------------- |
-| `npm run lint`         | Run ESLint on app, components, lib, and store |
-| `npm run lint:fix`     | Run ESLint and auto-fix issues                |
-| `npm run lint:ci`      | Run ESLint for CI (allows up to 100 warnings) |
-| `npm run type-check`   | Run TypeScript type checking without emitting |
-| `npm run format`       | Format code with Prettier                     |
-| `npm run format:check` | Check code formatting without modifying files |
+| Command             | Description                                   |
+| ------------------- | --------------------------------------------- |
+| `yarn lint`         | Run ESLint on app, components, lib, and store |
+| `yarn lint:fix`     | Run ESLint and auto-fix issues                |
+| `yarn lint:ci`      | Run ESLint for CI (allows up to 100 warnings) |
+| `yarn type-check`   | Run TypeScript type checking without emitting |
+| `yarn format`       | Format code with Prettier                     |
+| `yarn format:check` | Check code formatting without modifying files |
 
 ## 🧪 Testing
 
 ### Unit Tests (Jest)
 
-| Command                 | Description                    |
-| ----------------------- | ------------------------------ |
-| `npm run test`          | Run all unit tests             |
-| `npm run test:watch`    | Run tests in watch mode        |
-| `npm run test:coverage` | Run tests with coverage report |
+| Command              | Description                    |
+| -------------------- | ------------------------------ |
+| `yarn test`          | Run all unit tests             |
+| `yarn test:watch`    | Run tests in watch mode        |
+| `yarn test:coverage` | Run tests with coverage report |
 
 ### E2E Tests (Cypress)
 
-| Command                 | Description                            |
-| ----------------------- | -------------------------------------- |
-| `npm run cy:open`       | Open Cypress Test Runner (interactive) |
-| `npm run cy:run`        | Run Cypress tests headlessly           |
-| `npm run cy:run:headed` | Run Cypress tests with browser visible |
-| `npm run cy:component`  | Run Cypress component tests            |
-| `npm run cy:e2e`        | Start dev server and run E2E tests     |
+| Command              | Description                            |
+| -------------------- | -------------------------------------- |
+| `yarn cy:open`       | Open Cypress Test Runner (interactive) |
+| `yarn cy:run`        | Run Cypress tests headlessly           |
+| `yarn cy:run:headed` | Run Cypress tests with browser visible |
+| `yarn cy:component`  | Run Cypress component tests            |
+| `yarn cy:e2e`        | Start dev server and run E2E tests     |
 
 ## 🐳 Docker
 
 ### Using Docker Hub Images
 
-| Command               | Description                                |
-| --------------------- | ------------------------------------------ |
-| `npm run docker:pull` | Pull dev and latest images from Docker Hub |
-| `npm run docker:dev`  | Run development container                  |
-| `npm run docker:prod` | Run production container                   |
+| Command            | Description                                |
+| ------------------ | ------------------------------------------ |
+| `yarn docker:pull` | Pull dev and latest images from Docker Hub |
+| `yarn docker:dev`  | Run development container                  |
+| `yarn docker:prod` | Run production container                   |
 
 ### Building Docker Images
 
-| Command                     | Description                    |
-| --------------------------- | ------------------------------ |
-| `npm run docker:build:dev`  | Build development Docker image |
-| `npm run docker:build:prod` | Build production Docker image  |
+| Command                  | Description                    |
+| ------------------------ | ------------------------------ |
+| `yarn docker:build:dev`  | Build development Docker image |
+| `yarn docker:build:prod` | Build production Docker image  |
 
 ### Docker Compose (Direct)
 
@@ -106,14 +106,14 @@ git log --oneline
 
 ```bash
 # Run all checks before commit
-npm run lint:fix && npm run type-check && npm run test
+yarn lint:fix && yarn type-check && yarn test
 ```
 
 ### Full CI Check Locally
 
 ```bash
 # Simulate CI pipeline locally
-npm run lint:ci && npm run type-check && npm run test:coverage
+yarn lint:ci && yarn type-check && yarn test:coverage
 ```
 
 ### Clean Build
@@ -121,18 +121,18 @@ npm run lint:ci && npm run type-check && npm run test:coverage
 ```bash
 # Remove node_modules and reinstall
 rm -rf node_modules
-npm install
+yarn install
 
 # Or on Windows PowerShell
 Remove-Item -Recurse -Force node_modules
-npm install
+yarn install
 ```
 
 ### Fresh Start
 
 ```bash
 # Clean install and start dev
-npm ci && npm run dev
+yarn install --frozen-lockfile && yarn dev
 ```
 
 ## 🌐 URLs
@@ -157,11 +157,11 @@ npm ci && npm run dev
 
 ## 💡 Tips
 
-1. **Fast Testing**: Use `npm run test:watch` during development for instant feedback
-2. **Debug Cypress**: Use `npm run cy:open` for interactive debugging
-3. **Quick Lint**: Run `npm run lint:fix` before commits to auto-fix issues
-4. **Type Safety**: Run `npm run type-check` to catch type errors before building
-5. **Coverage Report**: After `npm run test:coverage`, open `coverage/lcov-report/index.html` in browser
+1. **Fast Testing**: Use `yarn test:watch` during development for instant feedback
+2. **Debug Cypress**: Use `yarn cy:open` for interactive debugging
+3. **Quick Lint**: Run `yarn lint:fix` before commits to auto-fix issues
+4. **Type Safety**: Run `yarn type-check` to catch type errors before building
+5. **Coverage Report**: After `yarn test:coverage`, open `coverage/lcov-report/index.html` in browser
 
 ---
 

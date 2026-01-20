@@ -319,7 +319,7 @@ NEXT_PUBLIC_API_KEY=abc123
 ```bash
 # Stop the server (Ctrl+C)
 # Then restart
-npm run dev
+yarn dev
 ```
 
 ### Docker Build Issues

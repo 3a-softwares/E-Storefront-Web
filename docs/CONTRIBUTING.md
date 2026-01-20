@@ -48,7 +48,7 @@ We are committed to providing a welcoming and inclusive environment for all cont
    ```
 4. **Install dependencies**:
    ```bash
-   npm install
+   yarn install
    ```
 
 ### Environment Setup
@@ -60,7 +60,7 @@ We are committed to providing a welcoming and inclusive environment for all cont
 2. Configure the required environment variables (see [ENVIRONMENT.md](docs/ENVIRONMENT.md))
 3. Start the development server:
    ```bash
-   npm run dev
+   yarn dev
    ```
 
 ## 🔄 Development Workflow
@@ -93,16 +93,16 @@ git checkout -b feature/your-feature-name
 
 ```bash
 # Run linting
-npm run lint
+yarn lint
 
 # Run type checking
-npm run type-check
+yarn type-check
 
 # Run unit tests
-npm test
+yarn test
 
 # Run E2E tests
-npm run cy:run
+yarn cy:run
 ```
 
 ### 5. Commit and Push
@@ -182,19 +182,19 @@ refactor(auth): simplify token refresh logic
 
 1. ✅ Ensure all tests pass
    ```bash
-   npm run test
+   yarn test
    ```
 2. ✅ Run linting and fix all issues
    ```bash
-   npm run lint:fix
+   yarn lint:fix
    ```
 3. ✅ Run type checking
    ```bash
-   npm run type-check
+   yarn type-check
    ```
 4. ✅ Format code
    ```bash
-   npm run format
+   yarn format
    ```
 5. ✅ Update documentation if needed
 6. ✅ Add/update tests for new functionality
@@ -304,7 +304,7 @@ export default function ComponentName({ prop1, prop2 }: ComponentProps) {
 ### Code Formatting
 
 - Use Prettier for consistent formatting
-- Run `npm run format` before committing
+- Run `yarn format` before committing
 - Configure your editor to format on save
 
 ## 🧪 Testing Requirements

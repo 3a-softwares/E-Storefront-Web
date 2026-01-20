@@ -204,8 +204,8 @@ No breaking changes. Performance optimizations are automatic.
 
 ```bash
 git pull origin main
-npm install
-npm run build
+yarn install
+yarn build
 ```
 
 ### Upgrading to 1.0.3
@@ -213,7 +213,7 @@ npm run build
 Update shared packages:
 
 ```bash
-npm update @3asoftwares/types @3asoftwares/utils
+yarn upgrade @3asoftwares/types @3asoftwares/utils
 ```
 
 ### Upgrading to 1.0.2

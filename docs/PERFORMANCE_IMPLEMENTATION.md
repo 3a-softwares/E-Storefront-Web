@@ -178,7 +178,7 @@ const HeavyComponent = dynamic(() => import('@/components/HeavyComponent'), {
 
 1. **Performance Testing**
    - Run Lighthouse audits before and after
-   - Check bundle size with `npm run build`
+   - Check bundle size with `yarn build`
    - Profile with React DevTools
 
 2. **Functional Testing**

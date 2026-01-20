@@ -129,7 +129,7 @@ For detailed technology documentation, see [E-Storefront/docs/technologies](../E
 ## 📦 Prerequisites
 
 - **Node.js** >= 20.x
-- **npm** >= 10.x (or yarn/pnpm)
+- **yarn** >= 1.22.x (recommended)
 - **Docker** (optional, for containerized development)
 
 ## 🚀 Quick Start
@@ -144,7 +144,7 @@ cd E-Storefront-Web
 ### 2. Install Dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ### 3. Configure Environment
@@ -158,7 +158,7 @@ Edit `.env.local` with your configuration (see [docs/ENVIRONMENT.md](docs/ENVIRO
 ### 4. Start Development Server
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Visit [http://localhost:3004](http://localhost:3004) to view the application.
@@ -216,21 +216,21 @@ E-Storefront-Web/
 
 ## 📜 Available Scripts
 
-| Command                 | Description                           |
-| ----------------------- | ------------------------------------- |
-| `npm run dev`           | Start development server on port 3004 |
-| `npm run build`         | Build for production                  |
-| `npm start`             | Start production server               |
-| `npm run lint`          | Run ESLint                            |
-| `npm run lint:fix`      | Fix ESLint issues                     |
-| `npm run type-check`    | TypeScript type checking              |
-| `npm test`              | Run Jest tests                        |
-| `npm run test:watch`    | Run tests in watch mode               |
-| `npm run test:coverage` | Generate coverage report              |
-| `npm run cy:open`       | Open Cypress test runner              |
-| `npm run cy:run`        | Run Cypress tests headlessly          |
-| `npm run format`        | Format code with Prettier             |
-| `npm run format:check`  | Check code formatting                 |
+| Command              | Description                           |
+| -------------------- | ------------------------------------- |
+| `yarn dev`           | Start development server on port 3004 |
+| `yarn build`         | Build for production                  |
+| `yarn start`         | Start production server               |
+| `yarn lint`          | Run ESLint                            |
+| `yarn lint:fix`      | Fix ESLint issues                     |
+| `yarn type-check`    | TypeScript type checking              |
+| `yarn test`          | Run Jest tests                        |
+| `yarn test:watch`    | Run tests in watch mode               |
+| `yarn test:coverage` | Generate coverage report              |
+| `yarn cy:open`       | Open Cypress test runner              |
+| `yarn cy:run`        | Run Cypress tests headlessly          |
+| `yarn format`        | Format code with Prettier             |
+| `yarn format:check`  | Check code formatting                 |
 
 ## 📚 Documentation
 

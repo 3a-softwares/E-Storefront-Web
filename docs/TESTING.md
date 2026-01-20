@@ -145,19 +145,19 @@ module.exports = createJestConfig(customJestConfig);
 
 ```bash
 # Run all tests
-npm test
+yarn test
 
 # Run in watch mode
-npm run test:watch
+yarn test:watch
 
 # Run with coverage
-npm run test:coverage
+yarn test:coverage
 
 # Run specific test file
-npm test -- tests/components/Header.test.tsx
+yarn test tests/components/Header.test.tsx
 
 # Run tests matching pattern
-npm test -- --testNamePattern="should add item to cart"
+yarn test --testNamePattern="should add item to cart"
 ```
 
 ### Writing Unit Tests
@@ -463,16 +463,16 @@ export default defineConfig({
 
 ```bash
 # Open Cypress UI
-npm run cy:open
+yarn cy:open
 
 # Run headlessly
-npm run cy:run
+yarn cy:run
 
 # Run with dev server
-npm run cy:e2e
+yarn cy:e2e
 
 # Run specific spec
-npx cypress run --spec "cypress/e2e/auth.cy.ts"
+yarn cypress run --spec "cypress/e2e/auth.cy.ts"
 ```
 
 ### Writing E2E Tests
@@ -657,7 +657,7 @@ coverageThreshold: {
 
 ```bash
 # Generate coverage report
-npm run test:coverage
+yarn test:coverage
 
 # View HTML report
 open coverage/lcov-report/index.html
@@ -683,9 +683,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run test:coverage
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn test:coverage
       - uses: codecov/codecov-action@v3
         with:
           files: ./coverage/lcov.info
@@ -697,12 +697,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
       - uses: cypress-io/github-action@v6
         with:
-          start: npm start
+          start: yarn start
           wait-on: 'http://localhost:3004'
 ```
 
