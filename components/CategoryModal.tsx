@@ -103,7 +103,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           />
           <FontAwesomeIcon
             icon={faChevronDown}
-            className="absolute right-3 top-2.5 size-4 text-gray-400 pointer-events-none"
+            className="pointer-events-none absolute right-3 top-2.5 size-4 text-gray-400"
           />
         </div>
         <div className="mb-4 max-h-64 overflow-y-auto rounded-lg border border-gray-200">
