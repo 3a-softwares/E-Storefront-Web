@@ -61,7 +61,7 @@ export default function ReturnsPage() {
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
                 Log into your account and go to Orders. Select the item you want to return and click
-                "Return Item".
+                &quot;Return Item&quot;.
               </p>
             </div>
 
@@ -105,7 +105,8 @@ export default function ReturnsPage() {
                 Get Refunded
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
-                Once we receive your return, we'll process your refund within 3-5 business days.
+                Once we receive your return, we&apos;ll process your refund within 3-5 business
+                days.
               </p>
             </div>
           </div>
@@ -186,8 +187,9 @@ export default function ReturnsPage() {
                   Processing Time
                 </h3>
                 <p className="ml-6 text-xs xs:ml-7 xs:text-sm">
-                  Once we receive and inspect your return, we'll process your refund within 3-5
-                  business days. You'll receive an email confirmation when the refund is issued.
+                  Once we receive and inspect your return, we&apos;ll process your refund within 3-5
+                  business days. You&apos;ll receive an email confirmation when the refund is
+                  issued.
                 </p>
               </div>
               <div>
@@ -225,8 +227,8 @@ export default function ReturnsPage() {
                   Exchanges
                 </h3>
                 <p className="ml-6 text-xs xs:ml-7 xs:text-sm">
-                  We don't offer direct exchanges. If you need a different size or color, please
-                  return the original item for a refund and place a new order.
+                  We don&apos;t offer direct exchanges. If you need a different size or color,
+                  please return the original item for a refund and place a new order.
                 </p>
               </div>
             </div>
@@ -248,7 +250,8 @@ export default function ReturnsPage() {
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
                 If you receive a damaged or defective item, contact us immediately with photos.
-                We'll send a replacement or issue a full refund including return shipping costs.
+                We&apos;ll send a replacement or issue a full refund including return shipping
+                costs.
               </p>
             </div>
             <div>
@@ -260,8 +263,8 @@ export default function ReturnsPage() {
                 Wrong Item Received
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
-                If you received the wrong item, we apologize! Contact us and we'll arrange to send
-                the correct item at no additional cost and provide a return label for the wrong
+                If you received the wrong item, we apologize! Contact us and we&apos;ll arrange to
+                send the correct item at no additional cost and provide a return label for the wrong
                 item.
               </p>
             </div>
@@ -275,7 +278,7 @@ export default function ReturnsPage() {
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
                 If your package is missing items from your order, please contact us within 48 hours
-                of delivery. We'll investigate and send the missing items or issue a refund.
+                of delivery. We&apos;ll investigate and send the missing items or issue a refund.
               </p>
             </div>
           </div>

@@ -168,6 +168,7 @@ export default function FAQPage() {
       <div className="border-b border-gray-200 bg-white/95 backdrop-blur-lg">
         <div className="mx-auto max-w-7xl px-3 py-6 xs:px-4 xs:py-8 sm:px-6 lg:px-8">
           <div className="flex w-full flex-col items-center text-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}

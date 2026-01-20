@@ -81,6 +81,7 @@ const ProductCardComponent: React.FC<ProductCardProps> = ({
       >
         <Link href={`/products/${product.id}`} className="block h-full w-full">
           {product.imageUrl ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
             <img
               src={product.imageUrl}
               alt={product.name}

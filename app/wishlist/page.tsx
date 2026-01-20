@@ -83,6 +83,7 @@ export default function WishlistPage() {
                   <Link href={`/products/${item.productId}`}>
                     <div className="relative h-40 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 xs:h-48 sm:h-56">
                       {item.image ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
                         <img
                           src={item.image}
                           alt={item.name}

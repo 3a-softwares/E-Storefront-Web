@@ -227,7 +227,7 @@ export default function HomePage() {
                 Shop by Category
               </h2>
               <p className="text-sm text-gray-600 xs:text-base sm:text-lg">
-                Find exactly what you're looking for
+                Find exactly what you&apos;re looking for
               </p>
             </div>
 

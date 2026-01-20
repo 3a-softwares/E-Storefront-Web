@@ -7,6 +7,7 @@ export const Recommendations: React.FC<{ products: any[] }> = ({ products }) => 
           key={product._id.$oid}
           className="flex flex-col items-center rounded-lg bg-white p-4 shadow"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={product.images[0]}
             alt={product.name}

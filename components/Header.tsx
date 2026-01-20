@@ -49,7 +49,7 @@ export default function Header() {
     if (userData) {
       setUser(userData);
     }
-  }, [searchParams]);
+  }, [searchParams, setUserProfile]);
 
   const handleSearch = useCallback(
     (e: React.FormEvent) => {
@@ -90,6 +90,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-3 py-2 xs:px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between xs:h-14 sm:h-16">
           <Link href="/" className="group flex flex-shrink-0 items-center gap-1 xs:gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}

@@ -48,7 +48,9 @@ export default function ProductDetailPage() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="max-w-md rounded-lg border border-red-200 bg-red-50 p-8">
           <h1 className="mb-2 text-xl font-semibold text-red-800">Product Not Found</h1>
-          <p className="mb-4 text-red-700">The product you're looking for doesn't exist.</p>
+          <p className="mb-4 text-red-700">
+            The product you&apos;re looking for doesn&apos;t exist.
+          </p>
           <Button
             variant="ghost"
             className="!no-underline"
@@ -115,6 +117,7 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 gap-4 rounded-lg bg-white p-4 shadow-md xs:gap-6 xs:rounded-xl xs:p-5 xs:shadow-lg sm:gap-8 sm:p-6 md:p-8 lg:grid-cols-2">
           <div>
             <div className="relative mb-3 xs:mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={images[selectedImage]}
                 alt={product?.name || 'Product'}
@@ -145,6 +148,7 @@ export default function ProductDetailPage() {
                       selectedImage === idx ? 'border-blue-500' : 'border-gray-300'
                     }`}
                   >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={img} alt={`View ${idx + 1}`} className="h-full w-full object-cover" />
                   </button>
                 ))}

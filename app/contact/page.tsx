@@ -42,6 +42,7 @@ export default function ContactPage() {
       <div className="border-b border-gray-200 bg-white/95 backdrop-blur-lg">
         <div className="mx-auto max-w-7xl px-4 py-5 xs:px-5 xs:py-6 sm:px-6 sm:py-8 lg:px-8">
           <div className="flex w-full flex-col items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={process.env.NEXT_PUBLIC_LOGO_URL}
               alt={'3A Softwares'}
@@ -51,8 +52,8 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="mx-auto max-w-2xl px-2 text-center text-base text-gray-600 xs:text-lg sm:text-xl">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as
-              soon as possible.
+              Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll
+              respond as soon as possible.
             </p>
           </div>
         </div>

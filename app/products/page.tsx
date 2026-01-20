@@ -445,7 +445,7 @@ export default function ProductsPage() {
                 {!hasMore && allProducts.length > 0 && (
                   <div className="py-8 text-center xs:py-12">
                     <p className="text-sm font-medium text-gray-500 xs:text-base">
-                      You've reached the end! ({allProducts.length} products shown)
+                      You&apos;ve reached the end! ({allProducts.length} products shown)
                     </p>
                   </div>
                 )}

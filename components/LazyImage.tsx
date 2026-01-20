@@ -76,6 +76,7 @@ export const LazyImage: React.FC<LazyImageProps> = React.memo(
 
     return (
       <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           ref={imgRef}
           src={imageSrc || undefined}

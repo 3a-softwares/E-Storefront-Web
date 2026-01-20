@@ -87,6 +87,7 @@ export default function CartPage() {
                       <div className="flex flex-shrink-0 justify-center xs:justify-start">
                         <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 xs:h-24 xs:w-24">
                           {item.image ? (
+                            /* eslint-disable-next-line @next/next/no-img-element */
                             <img
                               src={item.image}
                               alt={item.name}

@@ -114,6 +114,7 @@ export default function ProfilePage() {
     if (!userProfile) {
       loadUserFromStorage();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Refetch user on mount to get latest data
@@ -889,6 +890,7 @@ export default function ProfilePage() {
                           <Link href={`/products/${item.productId}`}>
                             <div className="mb-3 aspect-square overflow-hidden rounded-lg bg-gray-200">
                               {item.image ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
                                 <img
                                   src={item.image}
                                   alt={item.name}

@@ -76,7 +76,7 @@ export default function LoginPage() {
     if (userProfile) {
       router.push(redirectUrl);
     }
-  }, [userProfile]);
+  }, [userProfile, router, redirectUrl]);
 
   return (
     <div className="flex min-h-[calc(100vh_-_80px)] items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-8">
@@ -86,6 +86,7 @@ export default function LoginPage() {
             {/* Left side - Branding */}
             <div className="flex flex-col justify-center bg-gradient-to-br from-gray-900 to-gray-700 px-5 py-8 text-center xs:px-6 xs:py-10 sm:px-8 sm:py-12 lg:py-16 lg:text-left">
               <div className="mb-4 flex items-center justify-center gap-2 xs:mb-5 xs:gap-3 sm:mb-6 lg:justify-start">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={process.env.NEXT_PUBLIC_LOGO_URL}
                   alt="3A Softwares"
@@ -189,7 +190,7 @@ export default function LoginPage() {
               <GoogleSignInButton redirectTo={redirectUrl} text="signin_with" />
 
               <p className="mt-6 text-center text-sm text-gray-600">
-                Don't have an account?{' '}
+                Don&apos;t have an account?{' '}
                 <Link href="/signup" className="font-semibold text-gray-900 hover:text-gray-700">
                   Create one
                 </Link>

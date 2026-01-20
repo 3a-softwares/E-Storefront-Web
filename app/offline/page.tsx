@@ -24,12 +24,12 @@ export default function OfflinePage() {
 
         {/* Title */}
         <h1 className="mb-4 text-2xl font-bold text-gray-900 xs:text-3xl sm:text-4xl">
-          You're Offline
+          You&apos;re Offline
         </h1>
 
         {/* Description */}
         <p className="mx-auto mb-8 max-w-sm text-sm leading-relaxed text-gray-600 xs:text-base sm:text-lg">
-          It looks like you've lost your internet connection. Please check your network and try
+          It looks like you&apos;ve lost your internet connection. Please check your network and try
           again.
         </p>
 
@@ -58,10 +58,10 @@ export default function OfflinePage() {
         <div className="mt-12 rounded-2xl border border-gray-200 bg-white p-4 shadow-lg xs:p-6">
           <h2 className="mb-3 text-sm font-semibold text-gray-900 xs:text-base">
             <FontAwesomeIcon icon={faShoppingBag} className="mr-2 text-gray-600" />
-            While you're offline
+            While you&apos;re offline
           </h2>
           <p className="mb-4 text-xs text-gray-600 xs:text-sm">
-            Some pages you've visited before may still be available:
+            Some pages you&apos;ve visited before may still be available:
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             <Link

@@ -22,6 +22,7 @@ export const ProductCardCompact: React.FC<ProductCardCompactProps> = ({ product 
     >
       <div className="relative h-24 overflow-hidden bg-gray-100 xs:h-28 sm:h-32">
         {product.imageUrl ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={product.imageUrl}
             alt={product.name}

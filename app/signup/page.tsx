@@ -105,6 +105,7 @@ export default function SignupPage() {
             {/* Left side - Branding */}
             <div className="flex flex-col justify-center bg-gradient-to-br from-gray-900 to-gray-700 px-5 py-8 text-center xs:px-6 xs:py-10 sm:px-8 sm:py-12 lg:py-16 lg:text-left">
               <div className="mb-4 flex items-center justify-center gap-2 xs:mb-5 xs:gap-3 sm:mb-6 lg:justify-start">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={process.env.NEXT_PUBLIC_LOGO_URL}
                   alt="3A Softwares"

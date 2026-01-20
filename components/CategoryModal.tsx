@@ -136,7 +136,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
         {showCustomInput && searchTerm && !categoryExists && (
           <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-3">
             <p className="mb-2 text-xs font-medium text-blue-900">
-              Create new category: <span className="font-semibold">"{searchTerm}"</span>
+              Create new category: <span className="font-semibold">&quot;{searchTerm}&quot;</span>
             </p>
             <div className="flex gap-2">
               <Input

@@ -166,7 +166,7 @@ export default function ShippingPage() {
                   Processing Time
                 </h3>
                 <p className="ml-6 text-xs xs:ml-7 xs:text-sm">
-                  Orders are typically processed within 1-2 business days. You'll receive a
+                  Orders are typically processed within 1-2 business days. You&apos;ll receive a
                   confirmation email once your order ships with tracking information.
                 </p>
               </div>
@@ -229,7 +229,7 @@ export default function ShippingPage() {
                     Order Confirmation
                   </h3>
                   <p className="text-xs text-gray-600 xs:text-sm">
-                    You'll receive an email confirmation immediately after placing your order.
+                    You&apos;ll receive an email confirmation immediately after placing your order.
                   </p>
                 </div>
               </div>
@@ -244,7 +244,7 @@ export default function ShippingPage() {
                     Shipping Notification
                   </h3>
                   <p className="text-xs text-gray-600 xs:text-sm">
-                    Once shipped, you'll get an email with your tracking number and carrier
+                    Once shipped, you&apos;ll get an email with your tracking number and carrier
                     information.
                   </p>
                 </div>
@@ -260,7 +260,7 @@ export default function ShippingPage() {
                     Track Online
                   </h3>
                   <p className="text-xs text-gray-600 xs:text-sm">
-                    Use your tracking number on our website or the carrier's site to monitor
+                    Use your tracking number on our website or the carrier&apos;s site to monitor
                     delivery progress.
                   </p>
                 </div>
@@ -295,7 +295,7 @@ export default function ShippingPage() {
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
                 Please contact us immediately if you need to change your address. We can update it
-                if the order hasn't been shipped yet.
+                if the order hasn&apos;t been shipped yet.
               </p>
             </div>
             <div>
@@ -313,7 +313,7 @@ export default function ShippingPage() {
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
                 All shipments are insured. If your package is lost or arrives damaged, contact us
-                within 48 hours and we'll arrange a replacement or refund.
+                within 48 hours and we&apos;ll arrange a replacement or refund.
               </p>
             </div>
           </div>

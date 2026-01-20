@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUsers,
@@ -16,10 +17,13 @@ export default function AboutPage() {
       <div className="border-b border-gray-200 bg-white/95 backdrop-blur-lg">
         <div className="mx-auto max-w-7xl px-3 py-6 xs:px-4 xs:py-8 sm:px-6 lg:px-8">
           <div className="flex w-full flex-col items-center text-center">
-            <img
-              src={process.env.NEXT_PUBLIC_LOGO_URL}
-              alt={'3A Softwares'}
+            <Image
+              src={process.env.NEXT_PUBLIC_LOGO_URL || '/icons/icon-192x192.png'}
+              alt="3A Softwares"
+              width={80}
+              height={80}
               className="w-20 object-contain xs:w-24 sm:w-28"
+              unoptimized
             />
             <h1 className="mb-3 bg-gradient-to-r from-black to-gray-300 bg-clip-text text-3xl font-extrabold text-transparent xs:mb-4 xs:text-4xl sm:text-5xl">
               About 3A Softwares
@@ -42,16 +46,17 @@ export default function AboutPage() {
               worldwide.
             </p>
             <p className="text-base leading-relaxed xs:text-lg">
-              We believe that shopping online should be more than just a transaction. It's about
-              discovering products you love, connecting with brands you trust, and enjoying a
-              seamless experience from browsing to delivery. That's why we've built our platform
-              with care, focusing on quality, security, and customer satisfaction at every step.
+              We believe that shopping online should be more than just a transaction. It&apos;s
+              about discovering products you love, connecting with brands you trust, and enjoying a
+              seamless experience from browsing to delivery. That&apos;s why we&apos;ve built our
+              platform with care, focusing on quality, security, and customer satisfaction at every
+              step.
             </p>
             <p className="text-base leading-relaxed xs:text-lg">
               Today, 3A Softwares is proud to partner with hundreds of verified sellers and brands,
               offering an extensive selection of products across multiple categories. From
-              electronics to fashion, home goods to sports equipment, we're here to help you find
-              exactly what you need.
+              electronics to fashion, home goods to sports equipment, we&apos;re here to help you
+              find exactly what you need.
             </p>
           </div>
         </div>
@@ -101,7 +106,7 @@ export default function AboutPage() {
                 Customer Love
               </h3>
               <p className="text-xs text-gray-600 xs:text-sm">
-                Your satisfaction drives everything we do. We're here to make your experience
+                Your satisfaction drives everything we do. We&apos;re here to make your experience
                 amazing.
               </p>
             </div>
@@ -114,7 +119,8 @@ export default function AboutPage() {
               </div>
               <h3 className="mb-2 text-lg font-bold text-gray-900 xs:mb-3 xs:text-xl">Community</h3>
               <p className="text-xs text-gray-600 xs:text-sm">
-                We're building a community of shoppers, sellers, and brands who support each other.
+                We&apos;re building a community of shoppers, sellers, and brands who support each
+                other.
               </p>
             </div>
           </div>

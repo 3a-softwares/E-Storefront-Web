@@ -55,7 +55,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="max-w-md rounded-lg bg-white p-8 text-center shadow-md">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">Order Not Found</h1>
-          <p className="mb-6 text-gray-600">We couldn't find this order.</p>
+          <p className="mb-6 text-gray-600">We couldn&apos;t find this order.</p>
           <Button onClick={() => router.push('/orders')} variant="primary" size="md">
             Back to Orders
           </Button>

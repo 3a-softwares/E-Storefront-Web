@@ -16,6 +16,7 @@ export default function Footer() {
           <div className="col-span-2 mb-4 sm:col-span-2 sm:mb-0 lg:col-span-1">
             <div className="mb-3 flex items-center gap-2 xs:mb-4">
               <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-sm font-bold text-white shadow-lg xs:h-10 xs:w-10 xs:rounded-xl xs:text-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={process.env.NEXT_PUBLIC_LOGO_URL}
                   alt={'3A Softwares'}
