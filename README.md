@@ -44,18 +44,20 @@ Customer-facing e-commerce storefront application built with Next.js, featuring 
 
 ## 🛠 Tech Stack
 
-| Category             | Technologies                         |
-| -------------------- | ------------------------------------ |
-| **Framework**        | Next.js 16.1.1 (App Router)          |
-| **Language**         | TypeScript 5.x                       |
-| **State Management** | Zustand, React Query                 |
-| **API Layer**        | Apollo Client (GraphQL)              |
-| **Styling**          | Tailwind CSS, DaisyUI                |
-| **Icons**            | FontAwesome                          |
-| **Testing**          | Jest, React Testing Library, Cypress |
-| **Code Quality**     | ESLint, Prettier, SonarCloud         |
-| **Containerization** | Docker, Docker Compose               |
-| **Deployment**       | Vercel, Docker                       |
+| Category             | Technologies                                              |
+| -------------------- | --------------------------------------------------------- |
+| **Framework**        | Next.js 16.1.1 (App Router)                               |
+| **Language**         | TypeScript 5.x                                            |
+| **UI Library**       | React 18.2.0                                              |
+| **State Management** | Zustand 4.4.7, Recoil 0.7.7, TanStack React Query 5.90.12 |
+| **API Layer**        | Apollo Client 3.8.8 (GraphQL 16.8.1)                      |
+| **Styling**          | Tailwind CSS 3.4.0, DaisyUI 4.4.19, PostCSS               |
+| **Icons**            | FontAwesome 7.1.0                                         |
+| **Testing**          | Jest 29.7, React Testing Library 14.2.1, Cypress 13.6     |
+| **Code Quality**     | ESLint 8.x, Prettier 3.2, SonarCloud                      |
+| **Containerization** | Docker, Docker Compose                                    |
+| **Deployment**       | Vercel, Docker Hub                                        |
+| **Shared Packages**  | @3asoftwares/types, @3asoftwares/ui, @3asoftwares/utils   |
 
 ## 🎨 Technology Architecture
 
@@ -249,28 +251,32 @@ All documentation is located in the [`docs/`](docs/) folder:
 
 ### Technology Guides
 
-| Document                                                | Description               |
-| ------------------------------------------------------- | ------------------------- |
-| [NEXTJS](docs/technologies/NEXTJS.md)                   | Next.js 16 App Router     |
-| [TYPESCRIPT](docs/technologies/TYPESCRIPT.md)           | TypeScript configuration  |
-| [ZUSTAND](docs/technologies/ZUSTAND.md)                 | Zustand state management  |
-| [REACT_QUERY](docs/technologies/REACT_QUERY.md)         | TanStack React Query      |
-| [APOLLO_CLIENT](docs/technologies/APOLLO_CLIENT.md)     | Apollo Client GraphQL     |
-| [TAILWIND_CSS](docs/technologies/TAILWIND_CSS.md)       | Tailwind CSS styling      |
-| [JEST](docs/technologies/JEST.md)                       | Jest unit testing         |
-| [CYPRESS](docs/technologies/CYPRESS.md)                 | Cypress E2E testing       |
-| [ESLINT_PRETTIER](docs/technologies/ESLINT_PRETTIER.md) | ESLint & Prettier         |
-| [SONARCLOUD](docs/technologies/SONARCLOUD.md)           | SonarCloud analysis       |
-| [CI_CD](docs/technologies/CI_CD.md)                     | CI/CD with GitHub Actions |
-| [DOCKER](docs/technologies/DOCKER.md)                   | Docker containerization   |
+| Document                                            | Description               |
+| --------------------------------------------------- | ------------------------- |
+| [Technologies Overview](docs/technologies/)         | Full tech stack docs      |
+| [Next.js](docs/technologies/NEXTJS.md)              | Next.js 16 App Router     |
+| [React](docs/technologies/REACT.md)                 | React 18 best practices   |
+| [TypeScript](docs/technologies/TYPESCRIPT.md)       | TypeScript configuration  |
+| [Zustand](docs/technologies/ZUSTAND.md)             | Zustand state management  |
+| [React Query](docs/technologies/REACT_QUERY.md)     | TanStack React Query      |
+| [Apollo Client](docs/technologies/APOLLO_CLIENT.md) | Apollo Client GraphQL     |
+| [Recoil](docs/technologies/RECOIL.md)               | Recoil atomic state       |
+| [Tailwind CSS](docs/technologies/TAILWIND_CSS.md)   | Tailwind CSS styling      |
+| [DaisyUI](docs/technologies/DAISYUI.md)             | DaisyUI components        |
+| [PostCSS](docs/technologies/POSTCSS.md)             | PostCSS configuration     |
+| [FontAwesome](docs/technologies/FONTAWESOME.md)     | FontAwesome icons         |
+| [Performance](docs/technologies/PERFORMANCE.md)     | Performance optimization  |
+| [Jest](docs/technologies/JEST.md)                   | Jest unit testing         |
+| [Cypress](docs/technologies/CYPRESS.md)             | Cypress E2E testing       |
+| [Vercel](docs/technologies/VERCEL.md)               | Vercel deployment         |
 
 ### Additional Documentation
 
-| Document                                                            | Description             |
-| ------------------------------------------------------------------- | ----------------------- |
-| [CONTRIBUTING.md](docs/CONTRIBUTING.md)                             | Contribution guidelines |
-| [CHANGELOG.md](docs/CHANGELOG.md)                                   | Version history         |
-| [PERFORMANCE_IMPLEMENTATION.md](docs/PERFORMANCE_IMPLEMENTATION.md) | Performance guide       |
+| Document                            | Description             |
+| ----------------------------------- | ----------------------- |
+| [Contributing](docs/CONTRIBUTING.md) | Contribution guidelines |
+| [Changelog](docs/CHANGELOG.md)      | Version history         |
+| [Getting Started](docs/GETTING-STARTED.md) | Quick start guide |
 
 ## 🤝 Contributing
 
