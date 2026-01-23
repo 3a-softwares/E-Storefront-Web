@@ -330,10 +330,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=3asoftwares_E-Storefront-Web
-            -Dsonar.organization=3asoftwares
         # Note: Free tier uses default "Sonar way" Quality Gate (80% new code coverage)
         # Our custom 10% check is done in the test job
 
