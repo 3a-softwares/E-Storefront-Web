@@ -147,7 +147,7 @@ function VerifyEmailContent() {
                   </p>
                 )}
                 <p className="text-gray-600">
-                  You now have full access to all features of 3A E-Commerce.
+                  You now have full access to all features of 3A Storefront.
                 </p>
               </div>
 
