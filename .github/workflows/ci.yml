@@ -3,7 +3,7 @@
 # Runs on: Pull Requests to main, Push to main (merge)
 # =============================================================================
 
-name: CI
+name: CI Pipeline
 
 on:
   push:
@@ -521,6 +521,11 @@ jobs:
         run: |
           git add package.json yarn.lock
           git commit -m "chore: bump version to v${{ steps.version.outputs.new }} [skip ci]"
+          # Delete tag locally and remotely if it already exists
+          if git rev-parse "v${{ steps.version.outputs.new }}" >/dev/null 2>&1; then
+            git tag -d "v${{ steps.version.outputs.new }}"
+            git push --delete origin "v${{ steps.version.outputs.new }}"
+          fi
           git tag -a "v${{ steps.version.outputs.new }}" -m "Release v${{ steps.version.outputs.new }}"
           git push origin main --follow-tags
 

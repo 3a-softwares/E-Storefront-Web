@@ -251,32 +251,32 @@ All documentation is located in the [`docs/`](docs/) folder:
 
 ### Technology Guides
 
-| Document                                            | Description               |
-| --------------------------------------------------- | ------------------------- |
-| [Technologies Overview](docs/technologies/)         | Full tech stack docs      |
-| [Next.js](docs/technologies/NEXTJS.md)              | Next.js 16 App Router     |
-| [React](docs/technologies/REACT.md)                 | React 18 best practices   |
-| [TypeScript](docs/technologies/TYPESCRIPT.md)       | TypeScript configuration  |
-| [Zustand](docs/technologies/ZUSTAND.md)             | Zustand state management  |
-| [React Query](docs/technologies/REACT_QUERY.md)     | TanStack React Query      |
-| [Apollo Client](docs/technologies/APOLLO_CLIENT.md) | Apollo Client GraphQL     |
-| [Recoil](docs/technologies/RECOIL.md)               | Recoil atomic state       |
-| [Tailwind CSS](docs/technologies/TAILWIND_CSS.md)   | Tailwind CSS styling      |
-| [DaisyUI](docs/technologies/DAISYUI.md)             | DaisyUI components        |
-| [PostCSS](docs/technologies/POSTCSS.md)             | PostCSS configuration     |
-| [FontAwesome](docs/technologies/FONTAWESOME.md)     | FontAwesome icons         |
-| [Performance](docs/technologies/PERFORMANCE.md)     | Performance optimization  |
-| [Jest](docs/technologies/JEST.md)                   | Jest unit testing         |
-| [Cypress](docs/technologies/CYPRESS.md)             | Cypress E2E testing       |
-| [Vercel](docs/technologies/VERCEL.md)               | Vercel deployment         |
+| Document                                            | Description              |
+| --------------------------------------------------- | ------------------------ |
+| [Technologies Overview](docs/technologies/)         | Full tech stack docs     |
+| [Next.js](docs/technologies/NEXTJS.md)              | Next.js 16 App Router    |
+| [React](docs/technologies/REACT.md)                 | React 18 best practices  |
+| [TypeScript](docs/technologies/TYPESCRIPT.md)       | TypeScript configuration |
+| [Zustand](docs/technologies/ZUSTAND.md)             | Zustand state management |
+| [React Query](docs/technologies/REACT_QUERY.md)     | TanStack React Query     |
+| [Apollo Client](docs/technologies/APOLLO_CLIENT.md) | Apollo Client GraphQL    |
+| [Recoil](docs/technologies/RECOIL.md)               | Recoil atomic state      |
+| [Tailwind CSS](docs/technologies/TAILWIND_CSS.md)   | Tailwind CSS styling     |
+| [DaisyUI](docs/technologies/DAISYUI.md)             | DaisyUI components       |
+| [PostCSS](docs/technologies/POSTCSS.md)             | PostCSS configuration    |
+| [FontAwesome](docs/technologies/FONTAWESOME.md)     | FontAwesome icons        |
+| [Performance](docs/technologies/PERFORMANCE.md)     | Performance optimization |
+| [Jest](docs/technologies/JEST.md)                   | Jest unit testing        |
+| [Cypress](docs/technologies/CYPRESS.md)             | Cypress E2E testing      |
+| [Vercel](docs/technologies/VERCEL.md)               | Vercel deployment        |
 
 ### Additional Documentation
 
-| Document                            | Description             |
-| ----------------------------------- | ----------------------- |
-| [Contributing](docs/CONTRIBUTING.md) | Contribution guidelines |
-| [Changelog](docs/CHANGELOG.md)      | Version history         |
-| [Getting Started](docs/GETTING-STARTED.md) | Quick start guide |
+| Document                                   | Description             |
+| ------------------------------------------ | ----------------------- |
+| [Contributing](docs/CONTRIBUTING.md)       | Contribution guidelines |
+| [Changelog](docs/CHANGELOG.md)             | Version history         |
+| [Getting Started](docs/GETTING-STARTED.md) | Quick start guide       |
 
 ## 🤝 Contributing
 
